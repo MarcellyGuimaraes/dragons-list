@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
+import ButtonTable from '../../components/Table/ButtonTable'
+import HeaderTable from '../../components/Table/HeaderTable'
 
 const Home = () => {
   const [dragons, setDragons] = useState()
@@ -18,51 +20,23 @@ const Home = () => {
   return (
     <div className="flex flex-col justify-center m-2">
       <h1 className="text-center m-4">Tabela de Dragões</h1>
-      <div className="overflow-x-auto mx-32 mb-6 relative shadow-md sm:rounded-lg">
+      <div className="w-full overflow-x-auto mb-6 relative shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="py-3 px-6">
-                Nome do Dragão
-              </th>
-              <th scope="col" className="py-3 px-6">
-                Tipo
-              </th>
-              <th scope="col" className="py-3 px-6">
-                Data de Criação
-              </th>
-              <th scope="col" className="py-3 px-6">
-                Ações
-              </th>
-            </tr>
-          </thead>
+          <HeaderTable />
           <tbody>
-            {dragons.map((dragon) => (
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th
-                  scope="row"
-                  className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            {dragons.map((dragon) => {
+              return (
+                <tr
+                  key={dragon.id}
+                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  {dragon.name}
-                </th>
-                <td className="py-4 px-6">{dragon.type}</td>
-                <td className="py-4 px-6">{dragon?.createdAt}</td>
-                <td className="flex items-center py-4 px-6 space-x-3">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr>
-            ))}
+                  <th className="py-4 px-6">{dragon.name}</th>
+                  <td className="py-4 px-6">{dragon.type}</td>
+                  <td className="py-4 px-6">{dragon?.createdAt}</td>
+                  <ButtonTable idDragon={dragon.id} />
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
