@@ -45,7 +45,7 @@ const Entrar = () => {
               </label>
               <Input
                 type="text"
-                placeholder="Digite seu user"
+                placeholder="Usuário: teste_avocado"
                 value={user}
                 onChange={(e) => [setUser(e.target.value), setError('')]}
               />
@@ -56,7 +56,7 @@ const Entrar = () => {
               </label>
               <Input
                 type="password"
-                placeholder="Digite sua Senha"
+                placeholder="Senha: senha_segura"
                 value={senha}
                 onChange={(e) => [setSenha(e.target.value), setError('')]}
               />
