@@ -61,6 +61,7 @@ const Entrar = () => {
                 onChange={(e) => [setSenha(e.target.value), setError('')]}
               />
             </div>
+            <span className="font-bold text-red-500">{error}</span>
             <Button Text="Entrar" onClick={handleLogin} />
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
               Não tem uma conta?{' '}
