@@ -16,7 +16,7 @@ const HeaderTable = () => {
         </th>
         <th scope="col" className="py-3 px-6">
           <button
-            onClick={() => handleClick(0, 'adicionar', 'TesteName')}
+            onClick={() => handleClick(0, 'adicionar')}
             className="text-green-600 dark:text-green-500 hover:underline"
           >
             Criar novo

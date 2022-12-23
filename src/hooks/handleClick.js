@@ -6,7 +6,7 @@ const mes = date.getMonth()
 const ano = date.getFullYear()
 const today = `${dia}/${mes}/${ano}`
 
-export function handleClick(id, action, name = '') {
+export function handleClick(id, action) {
   const lista = [
     'Água',
     'Chamas',
