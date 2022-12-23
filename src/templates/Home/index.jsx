@@ -19,8 +19,10 @@ const Home = () => {
 
   return (
     <div className="flex flex-col justify-center m-2">
-      <h1 className="text-center m-4">Gerador aleatório de dragões</h1>
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <h1 className="m-4 mb-7 text-center text-xl font-bold">
+        Tabela de dragões
+      </h1>
+      <table className="w-full text-left text-sm md:w-4/5 md:self-center md:border text-gray-500 dark:text-gray-400">
         <HeaderTable />
         <tbody>
           {dragons.map((dragon) => {

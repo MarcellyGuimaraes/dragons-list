@@ -8,17 +8,17 @@ const Entrar = () => {
   const { signin } = useAuth()
   let navigate = useNavigate()
 
-  const [email, setEmail] = useState('')
+  const [user, setUser] = useState('')
   const [senha, setSenha] = useState('')
   const [error, setError] = useState('')
 
   const handleLogin = () => {
-    if (!email | !senha) {
+    if (!user | !senha) {
       setError('Preencha todos os campos')
       return
     }
 
-    const res = signin(email, senha)
+    const res = signin(user, senha)
 
     if (res) {
       setError(res)
@@ -37,14 +37,14 @@ const Entrar = () => {
               Entrar
             </p>
             <div className="">
-              <label className="block text-sm text-white" htmlFor="email">
+              <label className="block text-sm text-white" htmlFor="user">
                 E-mail
               </label>
               <Input
-                type="email"
-                placeholder="Digite seu E-mail"
-                value={email}
-                onChange={(e) => [setEmail(e.target.value), setError('')]}
+                type="text"
+                placeholder="Digite seu Username"
+                value={user}
+                onChange={(e) => [setUser(e.target.value), setError('')]}
               />
             </div>
             <div className="mt-2">
@@ -57,7 +57,8 @@ const Entrar = () => {
               />
             </div>
 
-            <div className="mt-4 items-center flex justify-between">
+            <span>{error}</span>
+            <div className="mt-4 items-center flex justify-center">
               <Button Text="Entrar" onClick={handleLogin} />
             </div>
             <div className="text-center">

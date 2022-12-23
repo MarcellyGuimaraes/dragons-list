@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 
 const Cadastrar = () => {
+  const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
-  const [emailConf, setEmailConf] = useState('')
   const [senha, setSenha] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
@@ -14,15 +14,12 @@ const Cadastrar = () => {
   const { signup } = useAuth()
 
   const handleCadastrar = () => {
-    if (!email | !emailConf | !senha) {
+    if (!user | !email | !senha) {
       setError('Preencha todos os campos')
-      return
-    } else if (email !== emailConf) {
-      setError('Os e-mails não são iguais')
       return
     }
 
-    const res = signup(email, senha)
+    const res = signup(user, senha)
 
     if (res) {
       setError(res)
@@ -44,24 +41,22 @@ const Cadastrar = () => {
               </p>
               <div className="">
                 <label className="block text-sm text-white" htmlFor="email">
-                  E-mail
+                  Username
                 </label>
+                <Input
+                  type="text"
+                  placeholder="Digite seu Usuário"
+                  value={user}
+                  onChange={(e) => [setUser(e.target.value), setError('')]}
+                />
+              </div>
+              <div className="mt-2">
+                <label className="block  text-sm text-white">Email</label>
                 <Input
                   type="email"
                   placeholder="Digite seu E-mail"
                   value={email}
                   onChange={(e) => [setEmail(e.target.value), setError('')]}
-                />
-              </div>
-              <div className="mt-2">
-                <label className="block  text-sm text-white">
-                  Confirme seu email
-                </label>
-                <Input
-                  type="email"
-                  placeholder="Confirme seu E-mail"
-                  value={emailConf}
-                  onChange={(e) => [setEmailConf(e.target.value), setError('')]}
                 />
               </div>
               <div className="mt-2">
@@ -73,7 +68,7 @@ const Cadastrar = () => {
                   onChange={(e) => [setSenha(e.target.value), setError('')]}
                 />
               </div>
-
+              {error}
               <div className="mt-4 items-center flex justify-between">
                 <Button Text="Inscrever-se" onClick={handleCadastrar} />
               </div>
@@ -85,7 +80,7 @@ const Cadastrar = () => {
                       className="inline-block right-0 align-baseline font-light text-sm text-500"
                       to="/"
                     >
-                      &nbsp;Entre
+                      Entre
                     </Link>
                   </strong>
                 </p>

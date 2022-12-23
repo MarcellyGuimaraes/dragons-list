@@ -25,23 +25,45 @@ export function handleClick(id, action, name = '') {
   switch (action) {
     case 'adicionar':
       {
-        api
-          .post('', {
-            title: name,
-            type: elemento,
-            createdAt: today,
-          })
-          .then(() => {
-            window.location.reload(true)
-          })
-        console.log('Adicionar clicado')
+        var item = prompt('Digite o nome: ')
+        if (item == null || item == '') {
+          return
+        } else {
+          api
+            .post('', {
+              title: item,
+              type: elemento,
+              createdAt: today,
+            })
+            .then(() => {
+              window.location.reload()
+            })
+        }
       }
       break
+
+    case 'editar':
+      {
+        var item = prompt('Digite o novo nome: ')
+        if (item == null || item == '') {
+          return
+        } else {
+          api
+            .put(`/${id}`, {
+              name: item,
+            })
+            .then(() => {
+              window.location.reload()
+            })
+        }
+      }
+      break
+
     case 'remover': {
       var r = confirm('Você tem certeza que quer deletar?')
       if (r == true) {
         api.delete(`/${id}`).then(() => {
-          window.location.reload(true)
+          window.location.reload()
         })
       } else {
         return
