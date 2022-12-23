@@ -18,11 +18,9 @@ const Home = () => {
   if (!dragons) return null
 
   return (
-    <div className="flex flex-col justify-center m-2">
-      <h1 className="m-4 mb-7 text-center text-xl font-bold">
-        Tabela de dragões
-      </h1>
-      <table className="w-full text-left text-sm md:w-4/5 md:self-center md:border text-gray-500 dark:text-gray-400">
+    <div className="flex flex-col justify-center bg-slate-400 h-screen">
+      <h1 className="mb-7 text-center text-xl font-bold">Tabela de dragões</h1>
+      <table className="w-full text-left bg-opacity-40 text-sm md:w-4/5 md:self-center md:border text-gray-500 dark:text-gray-400">
         <HeaderTable />
         <tbody>
           {dragons.map((dragon) => {

@@ -31,7 +31,7 @@ export function handleClick(id, action, name = '') {
         } else {
           api
             .post('', {
-              title: item,
+              name: item,
               type: elemento,
               createdAt: today,
             })

@@ -19,7 +19,7 @@ const HeaderTable = () => {
             onClick={() => handleClick(0, 'adicionar', 'TesteName')}
             className="text-green-600 dark:text-green-500 hover:underline"
           >
-            Criar novo de tipo aleatório
+            Criar novo
           </button>
         </th>
       </tr>

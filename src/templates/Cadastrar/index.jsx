@@ -31,62 +31,61 @@ const Cadastrar = () => {
   }
 
   return (
-    <div className="h-screen font-sans bg-cover bg-slate-700">
-      <div className="container mx-auto h-full flex flex-1 justify-center items-center">
-        <div className="w-full max-w-lg">
-          <div className="leading-loose">
-            <form className="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
-              <p className="text-white font-medium text-center text-lg font-bold">
-                Cadastre-se
-              </p>
-              <div className="">
-                <label className="block text-sm text-white" htmlFor="email">
-                  Username
-                </label>
-                <Input
-                  type="text"
-                  placeholder="Digite seu Usuário"
-                  value={user}
-                  onChange={(e) => [setUser(e.target.value), setError('')]}
-                />
-              </div>
-              <div className="mt-2">
-                <label className="block  text-sm text-white">Email</label>
-                <Input
-                  type="email"
-                  placeholder="Digite seu E-mail"
-                  value={email}
-                  onChange={(e) => [setEmail(e.target.value), setError('')]}
-                />
-              </div>
-              <div className="mt-2">
-                <label className="block  text-sm text-white">Senha</label>
-                <Input
-                  type="password"
-                  placeholder="Digite sua Senha"
-                  value={senha}
-                  onChange={(e) => [setSenha(e.target.value), setError('')]}
-                />
-              </div>
-              {error}
-              <div className="mt-4 items-center flex justify-between">
-                <Button Text="Inscrever-se" onClick={handleCadastrar} />
-              </div>
-              <div className="text-center">
-                <p>
-                  Já tem uma conta?
-                  <strong>
-                    <Link
-                      className="inline-block right-0 align-baseline font-light text-sm text-500"
-                      to="/"
-                    >
-                      Entre
-                    </Link>
-                  </strong>
-                </p>
-              </div>
-            </form>
-          </div>
+    <div className="flex flex-col bg-slate-400 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <p className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+        WoopSicredi Challenge
+      </p>
+      <div className="w-full bg-white bg-opacity-30 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Criar conta
+          </h1>
+          <form className="space-y-4 md:space-y-6" action="#">
+            <div>
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Usuário
+              </label>
+              <Input
+                type="text"
+                placeholder="Digite seu user"
+                value={user}
+                onChange={(e) => [setUser(e.target.value), setError('')]}
+              />
+            </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Email
+              </label>
+              <Input
+                type="email"
+                placeholder="Digite seu email"
+                value={email}
+                onChange={(e) => [setEmail(e.target.value), setError('')]}
+              />
+            </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Senha
+              </label>
+              <Input
+                type="password"
+                placeholder="Digite sua Senha"
+                value={senha}
+                onChange={(e) => [setSenha(e.target.value), setError('')]}
+              />
+            </div>
+            <span className="font-bold text-red-500">{error}</span>
+            <Button Text="Criar conta" onClick={handleCadastrar} />
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              Já tem uma conta?{' '}
+              <Link
+                to="/"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
+                Entrar
+              </Link>
+            </p>
+          </form>
         </div>
       </div>
     </div>
