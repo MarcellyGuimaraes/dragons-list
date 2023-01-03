@@ -10,7 +10,7 @@ const Entrar = () => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    if (form.email == 'teste@gmail.com' && form.senha == '12345678') {
+    if (form.email == 'teste_avocado' && form.senha == 'senha_segura') {
       setAuth(true)
       localStorage.setItem('login', auth)
       navigate('/home')
