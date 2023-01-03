@@ -1,13 +1,14 @@
-import React from 'react'
-import { AuthProvider } from './contexts/auth'
-import Rotas from './routes'
+import React, { useContext } from 'react'
+import { AuthContext } from './contexts/auth'
+import PrivateRoutes from './routes/private'
+import PublicRoutes from './routes/public'
 
 function App() {
-  return (
-    <AuthProvider>
-      <Rotas />
-    </AuthProvider>
-  )
+  const { auth } = useContext(AuthContext)
+
+  const getAuth = localStorage.getItem('login')
+
+  return getAuth || auth ? <PrivateRoutes /> : <PublicRoutes />
 }
 
 export default App
