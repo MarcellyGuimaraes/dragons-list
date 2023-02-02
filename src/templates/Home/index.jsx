@@ -37,7 +37,18 @@ const Home = () => {
                   <th className="py-4 px-6">{user.nome}</th>
                   <td className="py-4 px-6">{user.naturalidade}</td>
                   <td className="py-4 px-6">{user?.createdAt}</td>
-                  <ButtonTable idDragon={user.id} />
+                  <td className="flex items-center py-4 px-6 space-x-3">
+                    <ButtonTable
+                      idUser={user.id}
+                      text="Editar User"
+                      type="editar"
+                    />
+                    <ButtonTable
+                      idUser={user.id}
+                      text="Remover User"
+                      type="remover"
+                    />
+                  </td>
                 </tr>
               )
             })}
