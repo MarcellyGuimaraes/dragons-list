@@ -5,10 +5,16 @@ const HeaderTable = ({ handleClick }) => {
     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         <th scope="col" className="py-3 px-6">
-          Nome do Dragão
+          Nome
         </th>
         <th scope="col" className="py-3 px-6">
-          Tipo
+          Email
+        </th>
+        <th scope="col" className="py-3 px-6">
+          Telefone
+        </th>
+        <th scope="col" className="py-3 px-6">
+          Nacionalidade
         </th>
         <th scope="col" className="py-3 px-6">
           Data de Criação

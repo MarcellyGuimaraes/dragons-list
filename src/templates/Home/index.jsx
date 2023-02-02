@@ -52,8 +52,10 @@ const Home = () => {
                   key={user.id}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  <th className="py-4 px-6">{user.nome}</th>
-                  <td className="py-4 px-6">{user.naturalidade}</td>
+                  <th className="py-4 px-6">{user?.nome}</th>
+                  <th className="py-4 px-6">{user?.email}</th>
+                  <th className="py-4 px-6">{user?.telefone}</th>
+                  <td className="py-4 px-6">{user?.naturalidade}</td>
                   <td className="py-4 px-6">{user?.createdAt}</td>
                   <td className="flex items-center py-4 px-6 space-x-3">
                     <ButtonTable

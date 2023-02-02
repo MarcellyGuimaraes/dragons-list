@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import Input from '../../components/Input'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth'
+import InputLogin from '../../components/LoginInput'
 
 const Entrar = () => {
   const [form, setForm] = useState('')
@@ -38,7 +38,7 @@ const Entrar = () => {
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Usuário
               </label>
-              <Input
+              <InputLogin
                 type="text"
                 placeholder="Usuário: teste_avocado"
                 name="email"
@@ -51,7 +51,7 @@ const Entrar = () => {
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Senha
               </label>
-              <Input
+              <InputLogin
                 type="password"
                 placeholder="Senha: senha_segura"
                 name="senha"
