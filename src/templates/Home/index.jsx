@@ -38,6 +38,9 @@ const Home = () => {
     >
       <h1 className="mb-7 text-center text-xl font-bold">Tabela de usuários</h1>
       <div className="flex flex-col justify-center">
+        <span className="text-sm w-full text-sm md:w-4/5 md:self-center text-slate-700">
+          Não coloque dados reais!!
+        </span>
         <table className="w-full text-left bg-opacity-40 text-sm md:w-4/5 md:self-center md:border text-gray-500">
           <HeaderTable
             handleClick={() => {
