@@ -29,7 +29,12 @@ const Home = () => {
       <h1 className="mb-7 text-center text-xl font-bold">Tabela de dragões</h1>
       <div className="flex flex-col justify-center">
         <table className="w-full text-left bg-opacity-40 text-sm md:w-4/5 md:self-center md:border text-gray-500">
-          <HeaderTable />
+          <HeaderTable
+            handleClick={() => {
+              setShow(true)
+              setModal(modal)
+            }}
+          />
           <tbody>
             {users.map((user) => {
               return (
