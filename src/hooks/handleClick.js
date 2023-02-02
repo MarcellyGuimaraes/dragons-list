@@ -30,9 +30,9 @@ export function handleClick(id, action) {
           return
         } else {
           api
-            .post('', {
-              name: item,
-              type: elemento,
+            .post('/users', {
+              nome: item,
+              naturalidade: elemento,
               createdAt: today,
             })
             .then(() => {
@@ -50,7 +50,7 @@ export function handleClick(id, action) {
         } else {
           api
             .put(`/${id}`, {
-              name: item,
+              nome: item,
             })
             .then(() => {
               window.location.reload()
@@ -62,7 +62,7 @@ export function handleClick(id, action) {
     case 'remover': {
       var r = confirm('Você tem certeza que quer deletar?')
       if (r == true) {
-        api.delete(`/${id}`).then(() => {
+        api.delete(`/users/${id}`).then(() => {
           window.location.reload()
         })
       } else {
