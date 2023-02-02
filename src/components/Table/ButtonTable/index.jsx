@@ -1,17 +1,14 @@
 import React from 'react'
+import { DeleteIcon, EditIcon } from '../../Icons'
 
-const ButtonTable = ({ handleClick, type, text }) => {
+const ButtonTable = ({ handleClick, type }) => {
   return (
-    <div className="flex items-center py-4 px-6 space-x-3">
-      <button
-        className={`font-medium ${
-          type == 'editar' ? 'text-blue-600' : 'text-red-600'
-        } dark:text-blue-500 hover:underline`}
-        onClick={handleClick}
-      >
-        {text}
-      </button>
-    </div>
+    <button
+      className="font-medium dark:text-blue-500 hover:underline"
+      onClick={handleClick}
+    >
+      {type == 'editar' ? <EditIcon /> : <DeleteIcon />}
+    </button>
   )
 }
 

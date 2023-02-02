@@ -36,7 +36,7 @@ const Home = () => {
         users.length <= 18 ? 'h-screen' : 'h-full'
       }`}
     >
-      <h1 className="mb-7 text-center text-xl font-bold">Tabela de dragões</h1>
+      <h1 className="mb-7 text-center text-xl font-bold">Tabela de usuários</h1>
       <div className="flex flex-col justify-center">
         <table className="w-full text-left bg-opacity-40 text-sm md:w-4/5 md:self-center md:border text-gray-500">
           <HeaderTable
@@ -50,30 +50,30 @@ const Home = () => {
               return (
                 <tr
                   key={user.id}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  className="bg-white text-center border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
                   <th className="py-4 px-6">{user?.nome}</th>
-                  <th className="py-4 px-6">{user?.email}</th>
-                  <th className="py-4 px-6">{user?.telefone}</th>
+                  <td className="py-4 px-6">{user?.email}</td>
+                  <td className="py-4 px-6">{user?.telefone}</td>
                   <td className="py-4 px-6">{user?.naturalidade}</td>
                   <td className="py-4 px-6">{user?.createdAt}</td>
-                  <td className="flex items-center py-4 px-6 space-x-3">
-                    <ButtonTable
-                      text="Editar User"
-                      type="editar"
-                      handleClick={() => {
-                        setShowEdit(true)
-                        setModalEdit(modalEdit)
-                      }}
-                    />
-                    <ButtonTable
-                      text="Remover User"
-                      type="remover"
-                      handleClick={() => {
-                        setShowRemove(true)
-                        setModalRemove(modalRemove)
-                      }}
-                    />
+                  <td>
+                    <div className="flex justify-center py-4 px-6 space-x-3">
+                      <ButtonTable
+                        type="editar"
+                        handleClick={() => {
+                          setShowEdit(true)
+                          setModalEdit(modalEdit)
+                        }}
+                      />
+                      <ButtonTable
+                        type="remover"
+                        handleClick={() => {
+                          setShowRemove(true)
+                          setModalRemove(modalRemove)
+                        }}
+                      />
+                    </div>
                   </td>
                   <ModalEdit
                     refresh={init}
