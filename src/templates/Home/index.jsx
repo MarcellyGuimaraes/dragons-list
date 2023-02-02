@@ -15,13 +15,17 @@ const Home = () => {
   const [modalEdit, setModalEdit] = useState()
   const [modalRemove, setModalRemove] = useState()
 
-  useEffect(() => {
+  const init = () => {
     api
       .get('/users')
       .then((response) => setusers(response.data))
       .catch((err) => {
         console.error('ops! ocorreu um erro' + err)
       })
+  }
+
+  useEffect(() => {
+    init()
   }, [])
 
   if (!users) return null
@@ -70,11 +74,13 @@ const Home = () => {
                     />
                   </td>
                   <ModalEdit
+                    refresh={init}
                     show={showEdit}
                     onClose={() => setShowEdit(false)}
                     id={user.id}
                   />
                   <ModalRemove
+                    refresh={init}
                     show={showRemove}
                     onClose={() => setShowRemove(false)}
                     id={user.id}
@@ -85,7 +91,11 @@ const Home = () => {
           </tbody>
         </table>
       </div>
-      <ModalAdd show={showAdd} onClose={() => setShowAdd(false)} />
+      <ModalAdd
+        refresh={init}
+        show={showAdd}
+        onClose={() => setShowAdd(false)}
+      />
     </div>
   )
 }

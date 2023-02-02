@@ -1,14 +1,15 @@
 import React from 'react'
 import api from '../../../api'
 
-const ModalRemove = ({ show, onClose, id }) => {
+const ModalRemove = ({ show, onClose, id, refresh }) => {
   if (!show) {
     return null
   }
 
   const removeItem = () => {
     api.delete(`/users/${id}`).then(() => {
-      window.location.reload()
+      refresh()
+      onClose()
     })
   }
 
