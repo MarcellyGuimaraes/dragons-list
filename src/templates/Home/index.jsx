@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import ModalAdd from '../../components/Modais/ModalAdd'
-import ModalEdit from '../../components/Modais/ModalEdit'
-import ModalRemove from '../../components/Modais/ModalRemove'
-import ButtonTable from '../../components/Table/ButtonTable'
 import HeaderTable from '../../components/Table/HeaderTable'
+import LineTable from '../../components/Table/LineTable'
 
 const Home = () => {
   const [users, setusers] = useState()
   const [showAdd, setShowAdd] = useState(false)
-  const [showEdit, setShowEdit] = useState(false)
-  const [showRemove, setShowRemove] = useState(false)
   const [modalAdd, setModalAdd] = useState()
-  const [modalEdit, setModalEdit] = useState()
-  const [modalRemove, setModalRemove] = useState()
 
   const init = () => {
     api
@@ -51,46 +45,16 @@ const Home = () => {
           <tbody>
             {users.map((user) => {
               return (
-                <tr
+                <LineTable
                   key={user.id}
-                  className="bg-white text-center border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <th className="py-4 px-6">{user?.nome}</th>
-                  <td className="py-4 px-6">{user?.email}</td>
-                  <td className="py-4 px-6">{user?.telefone}</td>
-                  <td className="py-4 px-6">{user?.naturalidade}</td>
-                  <td className="py-4 px-6">{user?.createdAt}</td>
-                  <td>
-                    <div className="flex justify-center py-4 px-6 space-x-3">
-                      <ButtonTable
-                        type="editar"
-                        handleClick={() => {
-                          setShowEdit(true)
-                          setModalEdit(modalEdit)
-                        }}
-                      />
-                      <ButtonTable
-                        type="remover"
-                        handleClick={() => {
-                          setShowRemove(true)
-                          setModalRemove(modalRemove)
-                        }}
-                      />
-                    </div>
-                  </td>
-                  <ModalEdit
-                    refresh={init}
-                    show={showEdit}
-                    onClose={() => setShowEdit(false)}
-                    id={user.id}
-                  />
-                  <ModalRemove
-                    refresh={init}
-                    show={showRemove}
-                    onClose={() => setShowRemove(false)}
-                    id={user.id}
-                  />
-                </tr>
+                  id={user.id}
+                  nome={user.nome}
+                  email={user.email}
+                  telefone={user.telefone}
+                  naturalidade={user.naturalidade}
+                  createdAt={user.createdAt}
+                  refresh={init}
+                />
               )
             })}
           </tbody>

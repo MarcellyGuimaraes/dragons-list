@@ -2,14 +2,21 @@ import React, { useState } from 'react'
 import api from '../../../api'
 import Input from '../../Input'
 
-const ModalEdit = ({ show, onClose, id }) => {
+const ModalEdit = ({
+  show,
+  onClose,
+  id,
+  inicialNome,
+  inicialEmail,
+  inicialTelefone,
+}) => {
   if (!show) {
     return null
   }
 
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState('')
+  const [nome, setNome] = useState(inicialNome)
+  const [email, setEmail] = useState(inicialEmail)
+  const [telefone, setTelefone] = useState(inicialTelefone)
 
   const editItem = () => {
     api
