@@ -16,7 +16,7 @@ const ModalRemove = ({ show, onClose, id }) => {
     <>
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-10"
+          className="fixed inset-0 w-full h-full bg-black opacity-5"
           onClick={onClose}
         ></div>
         <div className="flex items-center min-h-screen px-4 py-8">
