@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import api from '../../api'
-import Input from '../Input'
+import api from '../../../api'
+import Input from '../../Input'
 
 const ModalAdd = ({ show, onClose }) => {
   if (!show) {

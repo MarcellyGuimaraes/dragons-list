@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
-import ModalAdd from '../../components/ModalAdd'
+import ModalAdd from '../../components/Modais/ModalAdd'
 import ButtonTable from '../../components/Table/ButtonTable'
 import HeaderTable from '../../components/Table/HeaderTable'
 
 const Home = () => {
   const [users, setusers] = useState()
-  const [show, setShow] = useState(false)
-  const [modal, setModal] = useState()
+  const [showAdd, setShowAdd] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+  const [showRemove, setShowRemove] = useState(false)
+  const [modalAdd, setModalAdd] = useState()
+  const [modalEdit, setModalEdit] = useState()
+  const [modalRemove, setModalRemove] = useState()
 
   useEffect(() => {
     api
@@ -31,8 +35,8 @@ const Home = () => {
         <table className="w-full text-left bg-opacity-40 text-sm md:w-4/5 md:self-center md:border text-gray-500">
           <HeaderTable
             handleClick={() => {
-              setShow(true)
-              setModal(modal)
+              setShowAdd(true)
+              setModalAdd(modalAdd)
             }}
           />
           <tbody>
@@ -46,23 +50,23 @@ const Home = () => {
                   <td className="py-4 px-6">{user.naturalidade}</td>
                   <td className="py-4 px-6">{user?.createdAt}</td>
                   <td className="flex items-center py-4 px-6 space-x-3">
-                    <button
-                      className={`px-6 py-2
-       border-2 border-green-600 text-green-600 
-       font-medium text-xs uppercase
-       rounded transition w-full mb-6
-       duration-150 ease-in-out md:w-2/6 md:h-12 hover:bg-green-600 hover:text-green-100`}
-                      onClick={() => {
-                        setShow(true)
-                        setModal(modal)
+                    <ButtonTable
+                      idUser={user.id}
+                      text="Editar User"
+                      type="editar"
+                      handleClick={() => {
+                        setShowEdit(true)
+                        setModalEdit(modalEdit)
                       }}
-                    >
-                      Editar User
-                    </button>
+                    />
                     <ButtonTable
                       idUser={user.id}
                       text="Remover User"
                       type="remover"
+                      handleClick={() => {
+                        setShowRemove(true)
+                        setModalRemove(modalRemove)
+                      }}
                     />
                   </td>
                 </tr>
@@ -71,7 +75,7 @@ const Home = () => {
           </tbody>
         </table>
       </div>
-      <ModalAdd show={show} onClose={() => setShow(false)} />
+      <ModalAdd show={showAdd} onClose={() => setShowAdd(false)} />
     </div>
   )
 }
