@@ -53,7 +53,6 @@ const Home = () => {
                   <td className="py-4 px-6">{user?.createdAt}</td>
                   <td className="flex items-center py-4 px-6 space-x-3">
                     <ButtonTable
-                      idUser={user.id}
                       text="Editar User"
                       type="editar"
                       handleClick={() => {
@@ -62,7 +61,6 @@ const Home = () => {
                       }}
                     />
                     <ButtonTable
-                      idUser={user.id}
                       text="Remover User"
                       type="remover"
                       handleClick={() => {
@@ -71,6 +69,16 @@ const Home = () => {
                       }}
                     />
                   </td>
+                  <ModalEdit
+                    show={showEdit}
+                    onClose={() => setShowEdit(false)}
+                    id={user.id}
+                  />
+                  <ModalRemove
+                    show={showRemove}
+                    onClose={() => setShowRemove(false)}
+                    id={user.id}
+                  />
                 </tr>
               )
             })}
@@ -78,8 +86,6 @@ const Home = () => {
         </table>
       </div>
       <ModalAdd show={showAdd} onClose={() => setShowAdd(false)} />
-      <ModalEdit show={showEdit} onClose={() => setShowEdit(false)} />
-      <ModalRemove show={showRemove} onClose={() => setShowRemove(false)} />
     </div>
   )
 }

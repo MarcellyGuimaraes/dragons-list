@@ -21,10 +21,10 @@ const ModalAdd = ({ show, onClose }) => {
 
     api
       .post('/users', {
-        nome: 'nome',
-        naturalidade: 'naturalidade',
-        email: 'email',
-        telefone: 'telefone',
+        nome: nome,
+        naturalidade: naturalidade,
+        email: email,
+        telefone: telefone,
         createdAt: today,
       })
       .then(() => {
