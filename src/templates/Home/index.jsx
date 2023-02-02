@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import ModalAdd from '../../components/Modais/ModalAdd'
+import ModalEdit from '../../components/Modais/ModalEdit'
+import ModalRemove from '../../components/Modais/ModalRemove'
 import ButtonTable from '../../components/Table/ButtonTable'
 import HeaderTable from '../../components/Table/HeaderTable'
 
@@ -76,6 +78,8 @@ const Home = () => {
         </table>
       </div>
       <ModalAdd show={showAdd} onClose={() => setShowAdd(false)} />
+      <ModalEdit show={showEdit} onClose={() => setShowEdit(false)} />
+      <ModalRemove show={showRemove} onClose={() => setShowRemove(false)} />
     </div>
   )
 }
