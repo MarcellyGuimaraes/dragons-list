@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
+import ModalAdd from '../../components/ModalAdd'
 import ButtonTable from '../../components/Table/ButtonTable'
 import HeaderTable from '../../components/Table/HeaderTable'
 
 const Home = () => {
   const [users, setusers] = useState()
+  const [show, setShow] = useState(false)
+  const [modal, setModal] = useState()
 
   useEffect(() => {
     api
@@ -38,11 +41,19 @@ const Home = () => {
                   <td className="py-4 px-6">{user.naturalidade}</td>
                   <td className="py-4 px-6">{user?.createdAt}</td>
                   <td className="flex items-center py-4 px-6 space-x-3">
-                    <ButtonTable
-                      idUser={user.id}
-                      text="Editar User"
-                      type="editar"
-                    />
+                    <button
+                      className={`px-6 py-2
+       border-2 border-green-600 text-green-600 
+       font-medium text-xs uppercase
+       rounded transition w-full mb-6
+       duration-150 ease-in-out md:w-2/6 md:h-12 hover:bg-green-600 hover:text-green-100`}
+                      onClick={() => {
+                        setShow(true)
+                        setModal(modal)
+                      }}
+                    >
+                      Editar User
+                    </button>
                     <ButtonTable
                       idUser={user.id}
                       text="Remover User"
@@ -55,6 +66,7 @@ const Home = () => {
           </tbody>
         </table>
       </div>
+      <ModalAdd show={show} onClose={() => setShow(false)} />
     </div>
   )
 }

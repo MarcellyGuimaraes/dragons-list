@@ -6,7 +6,9 @@ const ButtonTable = ({ idUser, type, text }) => {
     <td className="flex items-center py-4 px-6 space-x-3">
       <button
         onClick={() => handleClick(idUser, type)}
-        className="ont-medium text-blue-600 dark:text-blue-500 hover:underline"
+        className={`font-medium ${
+          type == 'editar' ? 'text-blue-600' : 'text-red-600'
+        } dark:text-blue-500 hover:underline`}
       >
         {text}
       </button>
