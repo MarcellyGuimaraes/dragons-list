@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div
-      className={`pt-9 bg-slate-400 ${
+      className={`pt-9 bg-slate-400 pb-4 ${
         users.length <= 18 ? 'h-screen' : 'h-full'
       }`}
     >
@@ -44,6 +44,13 @@ const Home = () => {
           />
           <tbody>
             {users.map((user) => {
+              const date = new Date(user.createdAt)
+              const formattedDate = date.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+              })
+              console.log(formattedDate)
               return (
                 <LineTable
                   key={user.id}
@@ -52,7 +59,7 @@ const Home = () => {
                   email={user.email}
                   telefone={user.telefone}
                   naturalidade={user.naturalidade}
-                  createdAt={user.createdAt}
+                  createdAt={formattedDate}
                   refresh={init}
                 />
               )
