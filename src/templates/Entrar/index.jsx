@@ -34,32 +34,22 @@ const Entrar = () => {
             Entrar na conta
           </h1>
           <div className="space-y-4 md:space-y-6">
-            <div>
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Usuário
-              </label>
-              <InputLogin
-                type="text"
-                placeholder="Usuário: teste_avocado"
-                name="email"
-                onChange={(e) =>
-                  setForm({ ...form, [e.target.name]: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Senha
-              </label>
-              <InputLogin
-                type="password"
-                placeholder="Senha: senha_segura"
-                name="senha"
-                onChange={(e) =>
-                  setForm({ ...form, [e.target.name]: e.target.value })
-                }
-              />
-            </div>
+            <InputLogin
+              type="text"
+              placeholder="Usuário: teste_avocado"
+              name="email"
+              onChange={(e) =>
+                setForm({ ...form, [e.target.name]: e.target.value })
+              }
+            />
+            <InputLogin
+              type="password"
+              placeholder="Senha: senha_segura"
+              name="senha"
+              onChange={(e) =>
+                setForm({ ...form, [e.target.name]: e.target.value })
+              }
+            />
             <button
               type="submit"
               className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
